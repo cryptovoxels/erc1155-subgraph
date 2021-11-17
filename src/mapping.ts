@@ -26,7 +26,7 @@ export function handleURI(event: URI): void {
   let tokenContract = TokenContract.load(contractId);
   if(tokenContract == null) {
     tokenContract = new TokenContract(contractId)
-    tokenContract.isLikelyERC1155 = false
+    tokenContract.isLikelyERC1155 = true
     let name = contract.try_name();
     if(!name.reverted) {
         tokenContract.name = normalize(name.value);
@@ -51,7 +51,7 @@ export function handleTransferSingle(event: TransferSingle): void {
   let tokenContract = TokenContract.load(contractId);
   if(tokenContract == null) {
     tokenContract = new TokenContract(contractId)
-    tokenContract.isLikelyERC1155 = false
+    tokenContract.isLikelyERC1155 = true
     let name = contract.try_name();
     if(!name.reverted) {
         tokenContract.name = normalize(name.value);
@@ -117,7 +117,7 @@ export function handleTransferBatch(event: TransferBatch): void {
   let tokenContract = TokenContract.load(contractId);
   if(tokenContract == null) {
     tokenContract = new TokenContract(contractId)
-    tokenContract.isLikelyERC1155 = false
+    tokenContract.isLikelyERC1155 = true
     let name = contract.try_name();
     if(!name.reverted) {
         tokenContract.name = normalize(name.value);
